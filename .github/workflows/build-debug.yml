@@ -1,4 +1,4 @@
-name: Build and publish ISO image (fast mode)
+name: Build and publish ISO image (debug mode)
 
 on: workflow_dispatch
 
@@ -65,7 +65,7 @@ jobs:
         with:
           files: ./grml/grml_isos/grml.iso
           tag_name: unstable
-          draft: y
+          draft: true
           name: ${{ github.sha }}
 
       - name: List files
