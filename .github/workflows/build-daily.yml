@@ -3,7 +3,7 @@ run-name: build-daily
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '16 1 * * *'
 
 env:
   GRML_VERSION: "0.42.1" # Should not be here
