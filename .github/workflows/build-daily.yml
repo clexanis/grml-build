@@ -5,9 +5,6 @@ on:
   schedule:
     - cron: '16 1 * * *'
 
-env:
-  GRML_VERSION: "0.42.1" # Should not be here
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,6 +14,8 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
+        with:
+          submodules: 'recursive'
 
       - name: Cache APT
         id: cache-apt
@@ -39,21 +38,10 @@ jobs:
           path: grml/grml_cd
           key: grml-cd
 
-      - name: Install grml-live
-        run: |
-          wget http://deb.grml.org/pool/main/g/grml-live/grml-live_${GRML_VERSION}_all.deb
-          sudo apt-get update
-          sudo apt-get install ./grml-live_${GRML_VERSION}_all.deb \
-          debian-archive-keyring -y --no-install-recommends
-
       - name: Build ISO
         id: grml-build
         if: ${{ success() }}
-        run: |
-          if [ -d grml_chroot ] || [ -d grml_chroot ]; then GRML_UPDATE='-u'
-          else GRML_UPDATE=''; fi
-          sudo grml-live -C grml-live.conf -d 'date -u +"%Y-%m-%dT%H:%M:%SZ"' \
-          -F -i grml.iso ${GRML_UPDATE} -v $(date -u +"%Y-%m-%d")
+        run: sudo ./auto-build.sh
 
       - name: Upload grml-live log as an artifact
         id: upload-log

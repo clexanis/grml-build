@@ -1,6 +1,12 @@
-name: Build and publish ISO image (debug mode)
+name: Build image but don't publish it
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+  push:
+    paths-ignore: 
+      - '.github**'
+    branches: [main, master]
+  pull_request:
 
 jobs:
   build:
@@ -31,18 +37,10 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: grml-live.log
-          path: grml/grml_logs/grml-live.log
-
-      - name: Upload grml ISO as a release
-        id: upload-iso
-        if: ${{ steps.grml-build.conclusion == 'success' }}
-        uses: softprops/action-gh-release@v1
-        with:
-          files: ./grml/grml_isos/grml.iso
-          tag_name: unstable
-          draft: true
-          name: ${{ github.sha }}
+          name: grml-live
+          path: |
+            - grml/grml_logs/grml-live.log
+            - grml/grml_isos/grml.iso
 
       - name: List files
         if: always()
