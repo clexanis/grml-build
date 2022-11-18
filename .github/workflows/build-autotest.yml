@@ -30,7 +30,9 @@ jobs:
       - name: Build ISO
         id: grml-build
         if: ${{ success() }}
-        run: sudo ./auto-build.sh -V
+        run: |
+          sudo ./auto-build.sh --fast -V
+          cat .env >> $GITHUB_ENV
 
       - name: Upload grml-live log as an artifact
         id: upload-log
@@ -39,8 +41,9 @@ jobs:
         with:
           name: grml-live
           path: |
-            - grml/grml_logs/grml-live.log
-            - grml/grml_isos/grml.iso
+            - ${{ env.OUTPUT }}/grml_logs/grml-live.log
+            - ${{ env.OUTPUT }}/grml_isos/grml-full-bullseye-${{ env.ISO_DATE }}.iso
+            - ${{ env.OUTPUT }}/grml_isos/grml-full-bullseye-${{ env.ISO_DATE }}.iso.sha256
 
       - name: List files
         if: always()

@@ -1,7 +1,0 @@
-name: Build image but don't publish it
-
-on: 
-  workflow_dispatch:
-  push:
-    branches: [main, master]
-  pull-request:

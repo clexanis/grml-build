@@ -24,7 +24,9 @@ jobs:
       - name: Build ISO
         id: grml-build
         if: ${{ success() }}
-        run: sudo ./auto-build.sh -V
+        run: |
+          sudo ./auto-build.sh -V
+          cat .env >> $GITHUB_ENV
 
       - name: Upload grml-live log as an artifact
         id: upload-log
@@ -37,11 +39,15 @@ jobs:
       - name: Upload grml ISO as a release
         id: upload-iso
         if: ${{ steps.grml-build.conclusion == 'success' }}
-        uses: softprops/action-gh-release@v1
+        uses: ncipollo/release-action@v1
         with:
-          files: ./grml/grml_isos/grml.iso
-          tag_name: unstable
+          allowUpdates: true
+          files:
+            - ${{ env.OUTPUT }}/grml_isos/grml-full-bullseye-${{ env.ISO_DATE }}.iso
+            - ${{ env.OUTPUT }}/grml_isos/grml-full-bullseye-${{ env.ISO_DATE }}.iso.sha256
+          generateReleaseNotes: true
           draft: true
+          tag: unstable
           name: ${{ github.sha }}
 
       - name: List files
