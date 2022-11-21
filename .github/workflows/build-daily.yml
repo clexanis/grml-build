@@ -59,9 +59,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
-          artifacts:
-            - ${{ env.OUTPUT }}/grml_isos/grml-full-bullseye-${{ env.ISO_DATE }}.iso
-            - ${{ env.OUTPUT }}/grml_isos/grml-full-bullseye-${{ env.ISO_DATE }}.iso.sha256
+          artifacts: "${{ env.OUTPUT }}/grml_isos/grml-full-bullseye-${{ env.ISO_DATE }}.iso,${{ env.OUTPUT }}/grml_isos/grml-full-bullseye-${{ env.ISO_DATE }}.iso.sha256"
           generateReleaseNotes: true
           prerelease: true
           tag: daily
