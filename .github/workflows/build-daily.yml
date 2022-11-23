@@ -17,27 +17,6 @@ jobs:
         with:
           submodules: 'recursive'
 
-      - name: Cache APT
-        id: cache-apt
-        uses: actions/cache@v3
-        with:
-          path: /var/cache/apt/archives/
-          key: ${{ runner.os }}-apt
-
-      - name: Cache grml-live chroot
-        id: cache-grml-chroot
-        uses: actions/cache@v3
-        with:
-          path: grml/grml_chroot
-          key: grml-chroot
-
-      - name: Cache grml-live compressed chroot
-        id: cache-grml-cd
-        uses: actions/cache@v3
-        with:
-          path: grml/grml_cd
-          key: grml-cd
-
       - name: Build ISO
         id: grml-build
         if: ${{ success() }}
