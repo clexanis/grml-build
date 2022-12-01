@@ -23,9 +23,7 @@ jobs:
       - name: Build ISO
         id: grml-build
         if: ${{ success() }}
-        run: |
-          sudo ./auto-build.sh --fast -V
-          cat .env >> $GITHUB_ENV
+        run: sudo ./auto-build.sh --fast -V ; cat .env >> $GITHUB_ENV
 
       - name: Upload grml-live log as an artifact
         id: upload-log
