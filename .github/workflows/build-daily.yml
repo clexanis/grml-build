@@ -20,11 +20,16 @@ jobs:
       - name: Build ISO
         id: grml-build
         if: ${{ success() }}
-        run: sudo ./auto-build.sh --fast -V ; cat .env >> $GITHUB_ENV
+        run: sudo ./auto-build.sh --fast -V
+
+      - name: Export environnement
+        id: grml-env
+        if: always()
+        run: cat .env >> $GITHUB_ENV
 
       - name: Upload grml-live log as an artifact
         id: upload-log
-        if: always()
+        if: ${{ steps.grml-env.conclusion == 'success' }}
         uses: actions/upload-artifact@v3
         with:
           name: grml-live.log
