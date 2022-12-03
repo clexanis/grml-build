@@ -32,7 +32,7 @@ jobs:
 
       - name: Upload grml-live log as an artifact
         id: upload-log
-        if: ${{ steps.grml-env.conclusion == 'success' }}
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: grml-live
