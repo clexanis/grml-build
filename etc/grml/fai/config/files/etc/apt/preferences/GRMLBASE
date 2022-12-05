@@ -3,3 +3,7 @@ Package: *
 Pin: release o=The grml project,a=grml-live,l=grml,c=main
 Pin-Priority: 997
 
+# Quickfix to fix upstream bug asking for unavailable libc6 because they pull libdmraid1.0.0.rc16 from bookworm
+Package: libdmraid1.0.0.rc16
+Pin: release o=The grml project,a=grml-live,l=grml,c=main
+Pin-Priority: -1
