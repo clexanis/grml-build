@@ -3,7 +3,7 @@ run-name: build-daily
 
 on:
   schedule:
-    - cron: '16 1 * * *'
+    - cron: '13 0 * * *'
 
 jobs:
   build:
@@ -20,7 +20,7 @@ jobs:
       - name: Build ISO
         id: grml-build
         if: ${{ success() }}
-        run: sudo ./auto-build.sh --fast -V
+        run: sudo ./auto-build.sh -V
 
       - name: Export environnement
         id: grml-env
@@ -38,11 +38,11 @@ jobs:
       - name: Upload grml ISO as a release
         id: upload-iso
         if: ${{ steps.grml-build.conclusion == 'success' }}
-        uses: ncipollo/release-action@v1
+        uses: pyTooling/Actions/releaser/composite@main
         with:
-          allowUpdates: true
-          artifacts: "${{ env.OUTPUT }}/grml_isos/grml-full-bullseye-${{ env.ISO_DATE }}.iso,${{ env.OUTPUT }}/grml_isos/grml-full-bullseye-${{ env.ISO_DATE }}.iso.sha256"
-          generateReleaseNotes: true
-          prerelease: true
-          tag: daily
-          name: "Daily build - ${{ env.ISO_DATE }}"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: |
+            - ${{ env.OUTPUT }}/grml_isos/*.iso
+            - ${{ env.OUTPUT }}/grml_isos/*.iso.sha256
+          tag: nightly
+          rm: true
