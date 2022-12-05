@@ -20,8 +20,6 @@ GRML_CONTROL_FILE=${INPUT}/debian/control # Set control file for solving depende
 apt-get update && apt-get install -y debian-archive-keyring $(sed -n '/Package: grml-live/,/^$/{/^$/d; p}' "${GRML_CONTROL_FILE}" | awk '/Depends:/{flag=1; next}/misc:Depends/{flag=0;exit} flag' | sed -e 's/\s(.*)//g' -e 's/,//g')
 
 ## Prepare build
-# Check if cache exist
-if [ -d "${OUTPUT}/grml_chroot" ] || [ -d "${OUTPUT}/grml_cd" ]; then GRML_UPDATE='-u'; else GRML_UPDATE=''; fi
 ## Fast mode
 if [[ $@ == *--fast* ]]; then
 	# Modify compression algorithm to use lz4 for faster build
