@@ -35,9 +35,16 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: grml-live
+          name: grml-logs
+          path: ${{ env.OUTPUT }}/grml_logs/
+
+      - name: Upload grml-live iso as an artifact
+        id: upload-iso
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: grml-iso
           path: |
-            - ${{ env.OUTPUT }}/grml_logs/grml-live.log
             - ${{ env.OUTPUT }}/grml_isos/grml-full-bullseye-${{ env.ISO_DATE }}.iso
             - ${{ env.OUTPUT }}/grml_isos/grml-full-bullseye-${{ env.ISO_DATE }}.iso.sha256
 

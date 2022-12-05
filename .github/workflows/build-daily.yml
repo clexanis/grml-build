@@ -32,8 +32,8 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: grml-live.log
-          path: ${{ env.OUTPUT }}/grml_logs/grml-live.log
+          name: grml-logs
+          path: ${{ env.OUTPUT }}/grml_logs/
 
       - name: Upload grml ISO as a release
         id: upload-iso
