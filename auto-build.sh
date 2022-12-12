@@ -7,8 +7,8 @@ if [ "$EUID" -ne 0 ]; then printf "Please run as root\n" & exit 1; fi
 ## Variables
 ISO_DATE_LONG="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
 ISO_DATE="$(date -u +"%Y-%m-%d")"
-INPUT="$(pwd)/src/grml-live"	# Set grml-live input directory
-OUTPUT="$(pwd)/grml/"	# Set grml-live working directory
+INPUT="$(pwd)"	# Set grml-live input directory
+OUTPUT="$(pwd)/build/"	# Set grml-live working directory
 LIVE_CONF=${INPUT}/etc/grml/grml-live.conf	# Set grml-live config file.
 export INPUT OUTPUT LIVE_CONF	# Export variables to be usable by grml-live
 # export variable to env file
