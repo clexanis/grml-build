@@ -1,4 +1,0 @@
-Name: debian
-Method: http://ftp.debian.org/debian/
-# Method: http://localhost/debian/
-# Fallback: http://snapshot.debian.net/archive/2007/04/02/debian/
