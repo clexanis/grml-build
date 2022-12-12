@@ -1,5 +1,19 @@
-grml-live
+grml-build
 =========
+
+This repository hold daily automated build of grml modified for my usage.
+
+Daily build are subject to change and are currently build with up-to-date Debian Bullseye, default grml full packages, ClamAV, and OpenZFS.
+
+## List of current modifications
+
+ - [x] Daily build script
+ - [x] OpenZFS with Debian DKMS package
+ - [x] Removed support for unsupported Debian version
+ - [ ] ZFS with PVE kernel?
+ - [ ] Backported kernel?
+
+## Original readme
 
 grml-live is a build system for creating a
 [Grml](https://grml.org/) and [Debian](https://www.debian.org/)
