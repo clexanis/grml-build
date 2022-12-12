@@ -45,9 +45,9 @@ jobs:
         with:
           name: grml-iso
           path: |
-            - ${{ env.OUTPUT }}/grml_isos/grml-full-bullseye-${{ env.ISO_DATE }}.iso
-            - ${{ env.OUTPUT }}/grml_isos/grml-full-bullseye-${{ env.ISO_DATE }}.iso.sha256
+            - ${{ env.OUTPUT }}/grml_isos/*.iso
+            - ${{ env.OUTPUT }}/grml_isos/*.iso.sha256
 
       - name: List files
         if: always()
-        run: ls -lah ./ ./grml/ ./grml/*
+        run: ls -lah ./ ./build/ ./build/*
