@@ -28,8 +28,8 @@ if [[ $@ == *--fast* ]]; then
 
 ## Build
 # Run grml-live
-"${INPUT}/grml-live" -C ./grml-live.conf -d "${ISO_DATE_LONG}" -F -i grml.iso ${GRML_UPDATE} -v "${ISO_DATE}" ${GRML_ARGS}
+"${INPUT}/grml-live" -C ./grml-live.conf -d "${ISO_DATE_LONG}" -F -i grml64.iso ${GRML_UPDATE} -v "${ISO_DATE}" ${GRML_ARGS}
 
 ## Post build
-mv "${OUTPUT}/grml_isos/grml.iso" "${OUTPUT}/grml_isos/grml-full-bullseye-${ISO_DATE}.iso"
-sha256sum "${OUTPUT}/grml_isos/grml-full-bullseye-${ISO_DATE}.iso" > "${OUTPUT}/grml_isos/grml-full-bullseye-${ISO_DATE}.iso.sha256"
+mv "${OUTPUT}/grml_isos/grml64.iso" "${OUTPUT}/grml_isos/grml64-full-bullseye-${ISO_DATE}.iso"
+sha256sum "${OUTPUT}/grml_isos/grml64-full-bullseye-${ISO_DATE}.iso" > "${OUTPUT}/grml_isos/grml64-full-bullseye-${ISO_DATE}.iso.sha256"
