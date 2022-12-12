@@ -1,4 +1,0 @@
-[submodule "src/grml-live"]
-	path = src/grml-live
-	url = https://github.com/clexanis/grml-live
-	branch = master
