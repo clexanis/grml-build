@@ -41,12 +41,10 @@ pdf-stamp:
 	touch pdf-stamp
 
 online: icons doc_html doc_epub doc_pdf
-	# this is assume that a checkout of grml.org.git is available
-	# next to grml-live.git as "grml.org"
-	test -d ../../grml.org/grml-live || exit 1
-	cp grml-live.html	../../grml.org/grml-live/index.html
-	cp grml-live.pdf	../../grml.org/grml-live/
-	cp grml-live.epub	../../grml.org/grml-live/
+	mkdir ../pages
+	cp grml-live.html	../pages/index.html
+	cp grml-live.pdf	../pages/
+	cp grml-live.epub	../pages/
 
 clean:
 	rm -rf images/icons
