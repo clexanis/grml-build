@@ -373,6 +373,8 @@ well.
 * NO_ONLINE: do not run scripts during the chroot build process which require a
 network connection
 
+* PVE_BULLSEYE: use Proxmox VE kernel for Debian Bullseye, allowing newest LTS kernel, updated tools, and integrated OpenZFS
+
 * RELEASE: run some specific scripts and commands to provide the workflow for an
 official grml release
 
