@@ -1,3 +1,7 @@
 # official debian repository:
-  deb     http://ftp.debian.org/debian/ sid main contrib non-free
-  deb-src http://ftp.debian.org/debian/ sid main contrib non-free
+#  deb     http://ftp.debian.org/debian/ sid main contrib non-free
+#  deb-src http://ftp.debian.org/debian/ sid main contrib non-free
+
+# Azure debian repository:
+  deb     http://debian-archive.trafficmanager.net/debian/ sid main contrib non-free
+  deb-src http://debian-archive.trafficmanager.net/debian/ sid main contrib non-free

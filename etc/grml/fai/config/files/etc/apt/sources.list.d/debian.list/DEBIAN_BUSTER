@@ -1,7 +1,15 @@
 # official debian repository:
-  deb     http://ftp.debian.org/debian/ buster main contrib non-free
-  deb-src http://ftp.debian.org/debian/ buster main contrib non-free
+#  deb     http://ftp.debian.org/debian/ buster main contrib non-free
+#  deb-src http://ftp.debian.org/debian/ buster main contrib non-free
 
 # security updates:
-  deb     http://security.debian.org/ buster/updates main contrib
-  deb-src http://security.debian.org/ buster/updates main contrib
+#  deb     http://security.debian.org/ buster/updates main contrib
+#  deb-src http://security.debian.org/ buster/updates main contrib
+
+# Azure debian repository:
+  deb     http://debian-archive.trafficmanager.net/debian/ buster main contrib non-free
+  deb-src http://debian-archive.trafficmanager.net/debian/ buster main contrib non-free
+
+# Azure security updates:
+  deb     http://debian-archive.trafficmanager.net/ buster/updates main contrib
+  deb-src http://debian-archive.trafficmanager.net/ buster/updates main contrib

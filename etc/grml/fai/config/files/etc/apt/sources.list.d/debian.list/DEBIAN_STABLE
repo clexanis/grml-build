@@ -1,11 +1,23 @@
 # official debian repository:
-  deb     http://ftp.debian.org/debian/ stable main contrib non-free
-  deb-src http://ftp.debian.org/debian/ stable main contrib non-free
+#  deb     http://ftp.debian.org/debian/ stable main contrib non-free
+#  deb-src http://ftp.debian.org/debian/ stable main contrib non-free
 
 # security updates:
-  deb     http://security.debian.org/debian-security stable-security main
-  deb-src http://security.debian.org/debian-security stable-security main
+#  deb     http://security.debian.org/debian-security stable-security main
+#  deb-src http://security.debian.org/debian-security stable-security main
 
 # backports:
-  deb     http://ftp.debian.org/debian/ bullseye-backports main contrib non-free
-  deb-src http://ftp.debian.org/debian/ bullseye-backports main contrib non-free
+#  deb     http://ftp.debian.org/debian/ bullseye-backports main contrib non-free
+#  deb-src http://ftp.debian.org/debian/ bullseye-backports main contrib non-free
+
+# Azure debian repository:
+  deb     http://debian-archive.trafficmanager.net/debian/ stable main contrib non-free
+  deb-src http://debian-archive.trafficmanager.net/debian/ stable main contrib non-free
+
+# Azure security updates:
+  deb     http://debian-archive.trafficmanager.net/debian-security stable-security main
+  deb-src http://debian-archive.trafficmanager.net/debian-security stable-security main
+
+# Azure backports:
+  deb     http://debian-archive.trafficmanager.net/debian/ bullseye-backports main contrib non-free
+  deb-src http://debian-archive.trafficmanager.net/debian/ bullseye-backports main contrib non-free
