@@ -1,0 +1,12 @@
+#!/bin/bash
+# Filename:      ${GRML_FAI_CONFIG}/config/scripts/PVE_BULLSEYE/01-clean-kernel
+# Purpose:       Remove default Debian kernel
+# Authors:       clexanis
+# Bug-Reports:   see https://github.com/clexanis/grml-build/issues
+# License:       This file is licensed under the GPL v3.
+################################################################################
+
+set -u
+set -e
+
+dpkg -l | grep -E "linux-image|linux-headers" | cut -d" " -f3 | xargs dpkg --purge
