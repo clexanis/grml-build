@@ -1,0 +1,14 @@
+#!/bin/bash
+# Filename:      ${GRML_FAI_CONFIG}/config/scripts/GRMLBASE/00-azure-cache
+# Purpose:       Change repository from Microsoft Azure to debian.org
+# Authors:       clexanis
+# Bug-Reports:   see https://github.com/clexanis/grml-build/issues
+# License:       This file is licensed under the GPL v3.
+################################################################################
+
+set -u
+set -e
+
+# shellcheck disable=SC2154
+if grep -q debian-archive.trafficmanager.net "${target}/etc/apt/sources.list.d/debian.list"; then
+	sed -i -e '/Azure/,$d' -e 's/#\ \ deb/deb/g' "${target}/etc/apt/sources.list.d/debian.list"; fi
